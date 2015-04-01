@@ -191,9 +191,47 @@ print("Trãi")
 print("Xiển")
 ```
 
-### 3. Kết luận
-Bằng việc sử dụng `call`, `apply` và `bind` ta có thể thay đổi được ngữ cảnh thực thi (phạm vi chứa hàm) để sử dụng một hàm với công dụng đa năng hơn như thực thi cho một đối tượng, phạm vi khác khác giúp ta có thể tận dụng tối đa mã nguồn được đã tạo ra, hay tạo shortcut cho hàm, linh hoạt hơn tham số đầu vào. Với `call` và `apply` chúng ta sử dụng để thực thi hàm đó luôn khi gọi, còn với `bind` ta có thể thực thi hàm đó nhiều lần sau khi đã được buộc (bind) với một ngữ cảnh nhất định.
+### 3. Vui vẻ tý
+Như bên trên đã phân tích, khi ta cần thực thi một function cho một ngữ cảnh khác, ta cần sử dụng `call`, `apply` hoặc `bind`, nhưng có một cách vượt mặt để không cần sử dụng nó. Bản có thể xem ví dụ sau:
 
+```javascript
+var obj = {
+    firstName: "Vô",
+    lastName : "Danh",
+
+    mMethod: function(firstName, lastName) {
+        var firstName = firstName || this.firstName
+        var lastName = lastName || this.lastName
+        console.log("Hello " + firstName + " " + lastName)
+    }
+}
+ 
+var obj1 = {
+    firstName: "Ông",
+    lastName : "Ké"
+};
+
+obj.mMethod.apply(obj1) // Hello Ông Ké
+
+// vượt mặt ở đây
+var method = Function.call.bind(obj.mMethod)
+
+method(obj1) // Hello Ông Ké
+
+// vượt mặt trong prototype của object
+method = Function.call.bind(Array.prototype.slice)
+
+console.log(method([100, 20, 40], 1)) // [20, 40]
+```
+
+Với đoạn mã trên, ta có thế thấy rằng khi gọi `method` ta không cần phải gọi `call`, `apply` hay `bind` ra nữa mà chỉ cần đẩy trực tiếp đối tượng cần gọi và tham số vào là đủ. Khá hay ho đấy chứ? gọi `call`, `apply`, `bind` mãi cũng chán, overcome một tý thấy nó tiện hơn hẳn.
+
+Ta có thể làm được như vậy là vì tất cả các function trong JavaScript đều kế thừa từ đối tượng `Function.prototype`, nên hiển nhiên nó có tất cả các function được định nghĩa từ `Function.prototype` như `call`, `apply` hay `bind`. Như vậy, ta hoàn toàn có thể gọi được các phương thức kế thừa này từ một function bất kì.
+
+Với ví dụ trên, ta coi `obj.mMethod` là một đối tượng cần gọi tới phương thức `call` thì ta hoàn toàn có thể tạo một phương thức `method` trực tiếp từ phương thức `call` mà đã được gắn `thisVal` bằng `obj.mMethod`: `Function.call.bind(obj.mMethod)` hoặc `Function.prototype.call.bind(obj.mMethod)`. Hay nói cách khác, phương thức `method` mới được tạo ra có nội dung giống như phương thức `call` và đối tượng chứa nó (gọi nó - `this`) là đối tượng `obj.mMethod` nên `method()` ~ `obj.mMethod.call()`.
+
+### 4. Kết luận
+Bằng việc sử dụng `call`, `apply` và `bind` ta có thể thay đổi được ngữ cảnh thực thi (phạm vi chứa hàm) để sử dụng một hàm với công dụng đa năng hơn như thực thi cho một đối tượng, phạm vi khác khác giúp ta có thể tận dụng tối đa mã nguồn được đã tạo ra, hay tạo shortcut cho hàm, linh hoạt hơn tham số đầu vào. Với `call` và `apply` chúng ta sử dụng để thực thi hàm đó luôn khi gọi, còn với `bind` ta có thể thực thi hàm đó nhiều lần sau khi đã được buộc (bind) với một ngữ cảnh nhất định.
 
 ***Chú thích***
 [1] đối tượng tựa mảng: Một đối tượng tựa mảng (array-like object) là một đối tượng có các thuộc tính là số tự nhiên và có một thuộc tính bắt buộc là `length` có giá trị bằng số các thuộc tính là số tự nhiên. Ví dụ: `{length: 3, 0: "Tôi", 1: "là", 2: "người Việt"}` hoặc `{'length': 3, '0': "Tôi", '1': "là", '2': "người Việt"}`.
