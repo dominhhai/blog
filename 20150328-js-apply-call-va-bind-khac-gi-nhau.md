@@ -192,7 +192,7 @@ print("Xiển")
 ```
 
 ### 3. Vui vẻ tý
-Như bên trên đã phân tích, khi ta cần thực thi một function cho một ngữ cảnh khác, ta cần sử dụng `call`, `apply` hoặc `bind`, nhưng có một cách vượt mặt để không cần sử dụng nó. Bản có thể xem ví dụ sau:
+Như bên trên đã phân tích, khi ta cần thực thi một function cho một ngữ cảnh khác, ta cần sử dụng `call`, `apply` hoặc `bind`, nhưng có một cách vượt mặt để không cần sử dụng nó. Bạn có thể xem ví dụ sau:
 
 ```javascript
 var obj = {
