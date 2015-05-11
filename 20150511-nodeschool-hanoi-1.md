@@ -15,6 +15,11 @@ Phòng 1001, toà 17T3, 17 Hoàng Đạo Thúy, Trung Hoà, Cầu Giấy
 3. @vietduc1441
 4. @NgaNguyenDuy
 
+## Nội dung
+Thực hiện theo hướng 1 - tự học. Các bạn học viên sẽ tự chọn lấy một bài giảng phù hợp với khả năng của mình và tự học. Các hướng dẫn viên sẽ giúp đỡ khi các bạn học khó khăn, đồng thời giúp các bạn học chậm đẩy nhanh được tiến độ, hiệu quả học tập hơn.
+
+Về một số hướng thực hiện đề xuất hiện tại, các bạn có thể cập nhập tại [đây](https://github.com/nodeschool/hanoi/issues/3).
+
 # Công tác chuẩn bị
 
 * Phòng ốc: đã được công ty anh @Logle cho mượn phòng với sức chứa 20 người và có đủ phương tiện trình chiếu, hệ thống wifi tốt, các bàn xê dịch được rất thuận tiện cho việc làm việc nhóm và tổ chức.
@@ -37,7 +42,7 @@ Sau khi kết thúc sự kiện, các bạn học viên đã phát biểu cảm 
 # Các điểm cần cải thiện
 Buổi đầu tiên sẽ rất thành công nếu không mắc phải một số vấn đề như:
 
-1.Học viên tham gia
+#### 1. Học viên tham gia
 
 * Hiện tượng: Có 90 bạn đăng kí tham gia, trong đó chỉ có 20 bạn đăng kí đầu tiên được tham gia, các bạn còn lại sẽ chờ tới đợt sau. Nhưng trong số 20 bạn đăng kí tham gia, chỉ có 7 bạn tới và trong số 90 bạn đăng kí tham gia có 3 bạn tới. Kết quả này làm ban tổ chức cũng khá bất ngờ, các bạn đăng kí tới lại không tới, trong khi có rất nhiều bạn trong danh sách chờ gửi email liên lạc xin đi ngay từ buổi đầu mà không được. 
 
@@ -45,7 +50,7 @@ Buổi đầu tiên sẽ rất thành công nếu không mắc phải một số
 
 * Khắc phục: Trong lần tới, ban tổ chức sẽ gửi email nhắc trước 3 ngày và yêu cầu các bạn xác nhận tham gia. Nếu bạn nào không xác nhận tham gia thì coi như không được tham dự. Thêm nữa trước ngày tham gia, ban tổ chức sẽ nhắc thêm ở các nhóm trên Facebook và diễn đàn [Nodejs.vn](http://nodejs.vn/).
 
-2.Hướng dẫn viên tham gia:
+#### 2. Hướng dẫn viên tham gia
 
 * Hiện tượng: Có 3 hướng dẫn viên không tham gia được buổi đầu tiên và đều báo gấp trước 1 ngày diễn ra.
 
@@ -53,7 +58,7 @@ Buổi đầu tiên sẽ rất thành công nếu không mắc phải một số
 
 * Khắc phục: Thông báo xác nhận trước ít nhất 3 ngày, để các hướng dẫn viên sắp xếp được công việc.
 
-3.Thêm học viên vào nhóm github
+#### 3. Thêm học viên vào nhóm github
 
 * Hiện tượng: Ban tổ chức không thông báo sớm và kịp thời cho các bạn tham gia buổi hôm đó về việc được tham gia nhóm NodeSchool Hanoi trên [Github](https://github.com/nodeschool/hanoi) và trên [Gitter Chat](https://gitter.im/nodeschool/vietnam-chapter).
 
@@ -61,7 +66,7 @@ Buổi đầu tiên sẽ rất thành công nếu không mắc phải một số
 
 * Khắc phục: Mở lịch trình ra khi tổ chức chương trình để tránh bị quên.
 
-4.Nước uống
+#### 4. Nước uống
 
 * Hiện tượng: Do thời gian diễn ra dài và phải nói nhiều nên mọi người khá khát nước. Lúc đó anh Đắc đã phải pha nước chè mời anh em uống. Cái này rất sơ xuất và vô lễ của ban tổ chức, không biết giờ hơn ngoài vừa cám ơn vừa xin lỗi công ty anh.
 
@@ -69,7 +74,7 @@ Buổi đầu tiên sẽ rất thành công nếu không mắc phải một số
 
 * Khắc phục: Sẽ xin tài trợ cho khoản nước uống hoặc học viên tham gia đóng góp để có nước uống chung.
 
-5.Điều tra sự quan tâm về Nodejs tại Việt Nam
+#### 5. Điều tra sự quan tâm về Nodejs tại Việt Nam
 
 Có 2 vấn đề chính cần thực hiện đó là lập danh sách các công ty đã, đang và sẽ sử dụng Nodejs cho các sản phẩm thương mại của mình cũng như hệ thống nội bộ; và điều tra mức độ quan tâm tới Nodejs của các lập trình viên tại Việt Nam.
 
