@@ -1,4 +1,4 @@
-Ngày 9/5/2015, buổi workshop đầu tiên của NodeSchool Hanoi đã diễn ra tốt đẹp với sự tài trợ và ủng hộ nhiệt tình của [công ty lapnghiep](http://www.lapnghiep.co/) của anh @Logle. Tại buổi đầu tiên có 10 bạn tham gia, nhưng không vì thế mà không khí của buổi gặp mặt đầu tiên kém sôi động.
+Ngày 9/5/2015, buổi workshop đầu tiên của [NodeSchool Hanoi](http://nodeschool.io/hanoi/) đã diễn ra tốt đẹp với sự tài trợ và ủng hộ nhiệt tình của [công ty lapnghiep](http://www.lapnghiep.co/) của anh @Logle. Tại buổi đầu tiên có 10 bạn tham gia, nhưng không vì thế mà không khí của buổi gặp mặt đầu tiên kém sôi động.
 
 ![Image 1](https://github.com/nodeschool/hanoi/blob/master/album/HAN%231/WP_20150509_16_55_57_Pro.jpg?raw=true)
 
