@@ -17,9 +17,9 @@ Phòng 1001, toà 17T3, 17 Hoàng Đạo Thúy, Trung Hoà, Cầu Giấy
 
 # Công tác chuẩn bị
 
-* Phòng ốc: đã được công ty anh @Logle cho mượn phòng với sức chứa 20 người và có đủ phương tiện trình chiếu, hệ thống wifi tốt, các bàn sê dịch được rất thuận tiện cho việc làm việc nhóm và tổ chức.
+* Phòng ốc: đã được công ty anh @Logle cho mượn phòng với sức chứa 20 người và có đủ phương tiện trình chiếu, hệ thống wifi tốt, các bàn xê dịch được rất thuận tiện cho việc làm việc nhóm và tổ chức.
 
-* Hướng dẫn viên: đã được sự ủng hộ nhiệt tình của một kĩ sư phần mền giỏi tại Hà Nội.
+* Hướng dẫn viên: đã được sự ủng hộ nhiệt tình của một số kĩ sư phần mền giỏi tại Hà Nội.
 
 * Học viên: về cơ bản công tác truyền thông khá tốt, có tới 90 bạn tại Hà Nội đăng kí tham gia ngay lần đầu tiên. Ban tổ chức cũng gửi email nhắc cho từng nhóm tham gia và danh sách chờ trước ngày diễn ra sự kiện 2 ngày.
 
@@ -28,14 +28,14 @@ Phòng 1001, toà 17T3, 17 Hoàng Đạo Thúy, Trung Hoà, Cầu Giấy
 # Không khí diễn ra
 ![Image 2](https://github.com/nodeschool/hanoi/blob/master/album/HAN%231/WP_20150509_16_56_14_Pro.jpg?raw=true)
 
-Có 10 bạn tham gia, nhưng không khí làm việc rất sôi động. Tuy thời gian dự kiến tổ chức trong 3 tiếng, nhưng do sự hăng say, nhiệt tình học tập và làm việc của tất cả mọi người, workshop phải kéo dài thêm 1 tiếng đồng hồ và để kết thúc cũng không thực sự là dễ dàng chút nào. Mọi người nhiệt tình hỏi và thảo luận làm quen với nhau. Các anh hướng dẫn viên cũng rất nhiệt tình và quan tâm tới từng bạn một, giúp đỡ các bạn tự tin hỏi, tự tin trình bày hơn. Thực sự các anh hướng dẫn viên cũng như các bạn học viên có một buổi làm việc rất năng suất và cũng khá mệt mỏi do tập trung năng lượng trong suốt 4 tiếng đồng hồ liền.
+Có 10 bạn tham gia, nhưng không khí làm việc rất sôi động. Tuy thời gian dự kiến tổ chức trong 3 tiếng, nhưng do sự hăng say, nhiệt tình học tập và làm việc của tất cả mọi người, workshop phải kéo dài thêm 1 tiếng đồng hồ và để kết thúc cũng không thực sự là dễ dàng chút nào. Mọi người rất nhiệt tình hỏi, thảo luận và làm quen với nhau. Các anh hướng dẫn viên cũng rất nhiệt tình và quan tâm tới từng bạn một, giúp đỡ các bạn tự tin hỏi, tự tin trình bày hơn. Thực sự các anh hướng dẫn viên cũng như các bạn học viên có một buổi làm việc rất năng suất và cũng khá mệt mỏi do phải tập trung năng lượng trong suốt 4 tiếng đồng hồ liền.
 
-Nhìn chung các bạn tham gia hầu hết ở mức mới làm quen với JavaScript cũng như Nodejs, nên có 2 bài tập lớn các bạn hay chọn là [javascripting](https://github.com/sethvincent/javascripting) và [learnyounode](https://github.com/workshopper/learnyounode). Ban đầu, các bạn cũng có thắc mắc về tham số đầu vào khi chạy chương trình, nhưng với sự giúp đỡ từ các anh hướng dẫn viên, các bạn đã ngay lập tức giải quyết được vấn đề này. Trong số này có một số bạn đã hoàn thành ngay phần javascripting và sang được 3 bài learnyounode, còn một số bạn khác làm xong cả learnyounode. Kết quả này khá bất ngờ, so với một số nước khác các bạn Việt Nam học rất nhanh, code cũng rất nhanh. Điều này có ý nghĩa rất lớn, nó khẳng định được lập trình viên Việt Nam không thua kém một nước nào hết, các bạn chỉ cần cố gắng có thể trở thành các nhà phát triển super stars, hứa hẹn nhiều cơ hội cho ngành công nghệ thông tin nước nhà.
+Nhìn chung các bạn tham gia hầu hết ở mức mới làm quen với JavaScript cũng như Nodejs, nên các bạn hay chọn 2 bài tập chính là [javascripting](https://github.com/sethvincent/javascripting) và [learnyounode](https://github.com/workshopper/learnyounode). Ban đầu, các bạn cũng có thắc mắc về tham số đầu vào khi chạy chương trình, nhưng với sự giúp đỡ từ các anh hướng dẫn viên, các bạn đã ngay lập tức giải quyết được vấn đề này. Trong số này có một số bạn đã hoàn thành ngay phần javascripting và sang được 3 bài learnyounode, còn một số bạn khác làm xong cả learnyounode. Kết quả này khá bất ngờ, so với một số nước khác các bạn Việt Nam học rất nhanh, code cũng rất nhanh. Điều này có ý nghĩa rất lớn, nó khẳng định được lập trình viên Việt Nam không thua kém một nước nào hết, các bạn chỉ cần cố gắng thì hoàn toàn có thể trở thành các nhà phát triển super stars.
 
 Sau khi kết thúc sự kiện, các bạn học viên đã phát biểu cảm nghĩ của mình cũng như góp ý để chương trình lần tới hoạt động được tốt hơn. Qua cảm nghĩ, qua không khí làm việc có thể thấy cách học tập mới mẻ này mang lại kết quả khá tốt đẹp, các bạn rất hứng thú với chương trình học kiểu này. Tại workshop này, ngoài việc các bạn dành được phần lớn thời gian thực hành, còn được sự hướng dẫn trực tiếp từ các anh hướng dẫn viên vốn là các nhà phát triển phần mềm giỏi tại Hà Nội, cũng như được chia sẻ nhiều về môi trường làm việc, công việc thực tế và các dòng công nghệ cũng như cơ hội của các bạn từ phía doanh nghiệp tại địa phương. Có thể nói ngoài kiến thức, tại đây các bạn còn thêm nhiều mối quan hệ với các bạn mới, các nhà phát triển giỏi và các doanh nghiệp. Những kiến thức và quan hệ này là những hành trang thực sự rất quan trọng cho các bạn trên con đường lập nghiệp.
 
 # Các điểm cần cải thiện
-Buổi đầu tiên sẽ rất thành công nếu không mắc một số vấn đề như:
+Buổi đầu tiên sẽ rất thành công nếu không mắc phải một số vấn đề như:
 
 1.Học viên tham gia
 
