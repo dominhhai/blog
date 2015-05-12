@@ -81,6 +81,6 @@ Có 2 vấn đề chính cần thực hiện đó là lập danh sách các côn
 Hiện tại, chưa việc nào được thực hiện cả. Trong lần tới, ban tổ chức sẽ cố gắng điều tra xong vấn đề này và cập nhập điều tra hàng tháng.
 
 # Kết luận
-Về cơ bản buổi gặp mặt đầu tiên diễn ra thành công. Thành công này là kết quả của sự ủng hộ, giúp đỡ nhiệt tình từ công ty anh @Logle, [Tinywood Studio](https://www.facebook.com/tinywoodstudio?fref=ts), các anh mentors và các bạn học viên. Tuy nhiên vẫn còn một số điểm yếu cần phải khắc phục ngay. Nguyên nhân của các điểm yếu này đều năm ở khâu tổ chức của ban tổ chức. Một trong những điểm yếu lớn nhất là việc nhắc các bạn xác nhận tham gia. Trong lần tới ban tổ chức sẽ khắc phục những điểm yếu này đồng thời mở rộng quy mô để có thể đáp ứng được nhu cầu của nhiều bạn học viên hơn.
+Về cơ bản buổi gặp mặt đầu tiên diễn ra thành công. Thành công này là kết quả của sự ủng hộ, giúp đỡ nhiệt tình từ công ty anh @Logle, [Tinywood Studio](https://www.facebook.com/tinywoodstudio?fref=ts), các anh mentors và các bạn học viên. Tuy nhiên vẫn còn một số điểm yếu cần phải khắc phục ngay. Nguyên nhân của các điểm yếu này đều nằm ở khâu tổ chức của ban tổ chức. Một trong những điểm yếu lớn nhất là việc nhắc các bạn xác nhận tham gia. Trong lần tới ban tổ chức sẽ khắc phục những điểm yếu này đồng thời mở rộng quy mô để có thể đáp ứng được nhu cầu của nhiều bạn học viên hơn.
 
 ![Image 3](https://github.com/nodeschool/hanoi/blob/master/album/HAN%231/WP_20150509_17_23_22_Pro.jpg?raw=true)
