@@ -68,13 +68,13 @@ Buổi đầu tiên sẽ rất thành công nếu không mắc phải một số
 
 #### 4. Nước uống
 
-* Hiện tượng: Do thời gian diễn ra dài và phải nói nhiều nên mọi người khá khát nước. Lúc đó anh Đắc đã phải pha nước chè mời anh em uống. Cái này rất sơ xuất và vô lễ của ban tổ chức, không biết giờ hơn ngoài vừa cám ơn vừa xin lỗi công ty anh.
+* Hiện tượng: Do thời gian diễn ra dài và phải nói nhiều nên mọi người khá khát nước. Lúc đó anh Đắc đã phải pha nước chè mời anh em uống. Cái này rất sơ xuất và vô lễ của ban tổ chức, không biết gì hơn ngoài vừa cám ơn vừa xin lỗi công ty anh.
 
 * Nguyên nhân: Do chưa chuẩn bị kinh phí cho khoản nước uống và đồ ăn ngọt nhẹ.
 
 * Khắc phục: Sẽ xin tài trợ cho khoản nước uống hoặc học viên tham gia đóng góp để có nước uống chung.
 
-#### 5. Điều tra sự quan tâm về Nodejs tại Việt Nam
+#### 5. Thống kê về Nodejs tại Việt Nam
 
 Có 2 vấn đề chính cần thực hiện đó là lập danh sách các công ty đã, đang và sẽ sử dụng Nodejs cho các sản phẩm thương mại của mình cũng như hệ thống nội bộ; và điều tra mức độ quan tâm tới Nodejs của các lập trình viên tại Việt Nam.
 
