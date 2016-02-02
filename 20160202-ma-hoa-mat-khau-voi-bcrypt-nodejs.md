@@ -23,24 +23,24 @@ Trong bài viết này sẽ đề cập tới cả 2 phương thức đó.
 const bcrypt = require('bcrypt')
 
 bcrypt.genSalt(10, function (err, salt) {
-    bcrypt.hash("B4c0/\/", salt, function (err, hash) {
+    bcrypt.hash('B4c0/\/', salt, function (err, hash) {
 
         console.log(hash)
 
         // To check a password  
-        bcrypt.compare("B4c0/\/", hash, function (err, res) {
+        bcrypt.compare('B4c0/\/', hash, function (err, res) {
             // res == true
-            console.log("equal")
+            console.log('equal')
             console.log(res)
-        });
+        })
 
-        bcrypt.compare("not_bacon", hash, function (err, res) {
+        bcrypt.compare('not_bacon', hash, function (err, res) {
             // res == false
-            console.log("not equal")
+            console.log('not equal')
             console.log(res)
-        });
-    });
-});
+        })
+    })
+})
 
 // Auto-gen a salt and hash
 bcrypt.hash('bacon', 8, function (err, hash) {
@@ -58,11 +58,11 @@ var hash = bcrypt.hashSync('B4c0/\/', salt)
 
 // To check a password
 var res = bcrypt.compareSync('B4c0/\/', hash)   // true
-console.log("equal")
+console.log('equal')
 console.log(res)
 
 res = bcrypt.compareSync('not_bacon', hash)     // false
-console.log("not equal")
+console.log('not equal')
 console.log(res)
 
 // Auto-gen a salt and hash
