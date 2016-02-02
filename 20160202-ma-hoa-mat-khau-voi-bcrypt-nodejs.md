@@ -19,7 +19,7 @@ Trong bài viết này sẽ đề cập tới cả 2 phương thức đó.
 
 #### Bất đồng bộ
 
-```
+```javascript
 const bcrypt = require('bcrypt')
 
 bcrypt.genSalt(10, function (err, salt) {
@@ -50,7 +50,7 @@ bcrypt.hash('bacon', 8, function (err, hash) {
 
 #### Đồng bộ
 
-```
+```javascript
 const bcrypt = require('bcrypt')
 
 var salt = bcrypt.genSaltSync(10)
@@ -73,7 +73,6 @@ console.log(`Auto-gen: ${hash}`)
 2 đoạn mã trên sau khi thực thi sẽ cho kết quả như sau:
 
 ```
-$ node app-bcrypt.js 
 $2a$08$vj/8fY70VkEmVab/czGJ8euRvsGo0q0T5ETDKUusCXMXytYXeCKkC
 
 equal
