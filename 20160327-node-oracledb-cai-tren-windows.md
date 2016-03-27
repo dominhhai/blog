@@ -52,3 +52,4 @@ Do việc cài đặt các gói add-on native trên Windows quá vất vả vì 
 ### Tham khảo
 1. [Install node-oracledb for windows](https://github.com/oracle/node-oracledb/blob/master/INSTALL.md#instwin)
 2. [win,build: support Visual C++ Build Tools 2015](https://github.com/nodejs/node/pull/5627)
+3. [Ví dụ với ExpressJS](https://github.com/dominhhai/express-oracledb)
