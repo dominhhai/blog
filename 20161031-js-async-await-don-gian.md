@@ -136,116 +136,116 @@
 
 ####  3.1. Quên khai báo từ khóa `async`
 
-    Đương nhiên rồi, không khai báo từ khóa này thì ta không có hàm async được, không sử dụng `await` được rồi. Thường bạn sẽ nghĩ đơn giản là không thể nào quên được từ khóa này, nhưng tôi nghĩ đôi lúc có thể đấy. Ví dụ như với trường hợp khai báo một hàm trong một hàm async. Hàm khai báo trong hàm async cũng bắt buộc phải được khai báo với từ khóa `async` nếu như bạn muốn sử dụng như một hàm async.
+Đương nhiên rồi, không khai báo từ khóa này thì ta không có hàm async được, không sử dụng `await` được rồi. Thường bạn sẽ nghĩ đơn giản là không thể nào quên được từ khóa này, nhưng tôi nghĩ đôi lúc có thể đấy. Ví dụ như với trường hợp khai báo một hàm trong một hàm async. Hàm khai báo trong hàm async cũng bắt buộc phải được khai báo với từ khóa `async` nếu như bạn muốn sử dụng như một hàm async.
 
-      ```javascript
-      async function main() {
-        await wait(1000)
-        let arr = [100, 300, 500].map(val => wait(val))
-        arr.forEach(func => await func)
-        // ??? error
-      }
-      ```
+```javascript
+async function main() {
+  await wait(1000)
+  let arr = [100, 300, 500].map(val => wait(val))
+  arr.forEach(func => await func)
+  // ??? error
+}
+```
 
 ####  3.2. Nhập nhằng từ khóa `await`
 
-    Có 2 tình huống điển hình cho trường hợp này là:
-    * Quên khai báo khi cần đợi một xử lý bất đồng bộ
+Có 2 tình huống điển hình cho trường hợp này là:
+* Quên khai báo khi cần đợi một xử lý bất đồng bộ
 
-      Có gì đáng sợ không? Câu trả lời là có đấy! Nếu bạn không khai báo từ khóa này thì kết quả bạn nhận được sẽ là một `Promise` chứ không phải là kết quả thực thi của xử lý bất đồng bộ nhé.
+  Có gì đáng sợ không? Câu trả lời là có đấy! Nếu bạn không khai báo từ khóa này thì kết quả bạn nhận được sẽ là một `Promise` chứ không phải là kết quả thực thi của xử lý bất đồng bộ nhé.
 
-      ```javascript
-      async function now() {
-        return Date.now()
-      }
+  ```javascript
+  async function now() {
+    return Date.now()
+  }
 
-      async function main() {
-        let t = now()
-        console.log(t)
-         // ??? `t` is a `Promise` instance
-      }
-      ```
+  async function main() {
+    let t = now()
+    console.log(t)
+     // ??? `t` is a `Promise` instance
+  }
+  ```
 
-    * Khai báo "thừa" trước một xử lý đồng bộ
+* Khai báo "thừa" trước một xử lý đồng bộ
 
-       Nếu mà sợ quên thì cứ khai báo bừa đi, đâu có sao? Ừ không sao đâu ngoại trừ 2 vấn đề là không biết cái nào là đồng bộ, cái nào là bất đồng bộ nữa, và hiệu quả đi xuống đấy. Mỗi khi bạn khai báo `await` thì mặc nhiên sau từ khóa đó là một `Promise`, nếu không phải là một `Promise` thì nó sẽ được gói lại vào `Promise` và được trả ra ngay với phương thức [`Promise.resolve(value)`](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve). Rảnh quá ha, muốn lấy `1 + 0 = 1` mà phải đi đường vòng là tính tổng, rồi nhét vào Promise, rồi lại moi ra để sử dụng.
+   Nếu mà sợ quên thì cứ khai báo bừa đi, đâu có sao? Ừ không sao đâu ngoại trừ 2 vấn đề là không biết cái nào là đồng bộ, cái nào là bất đồng bộ nữa, và hiệu quả đi xuống đấy. Mỗi khi bạn khai báo `await` thì mặc nhiên sau từ khóa đó là một `Promise`, nếu không phải là một `Promise` thì nó sẽ được gói lại vào `Promise` và được trả ra ngay với phương thức [`Promise.resolve(value)`](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve). Rảnh quá ha, muốn lấy `1 + 0 = 1` mà phải đi đường vòng là tính tổng, rồi nhét vào Promise, rồi lại moi ra để sử dụng.
 
-       ```javascript
-       async function main() {
-         // run with await
-         console.log('run with await')
-         let i = 1000000
-         console.time('await')
-         while(i-- > 0) {
-           let t = await (1 + 0)
-         }
-         console.timeEnd('await')
+   ```javascript
+   async function main() {
+     // run with await
+     console.log('run with await')
+     let i = 1000000
+     console.time('await')
+     while(i-- > 0) {
+       let t = await (1 + 0)
+     }
+     console.timeEnd('await')
 
-         // run without await
-         console.log('run without await')
-         i = 1000000
-         console.time('normal')
-         while(i-- > 0) {
-           let t = 1 + 0
-         }
-         console.timeEnd('normal')
-       }
-       ```
+     // run without await
+     console.log('run without await')
+     i = 1000000
+     console.time('normal')
+     while(i-- > 0) {
+       let t = 1 + 0
+     }
+     console.timeEnd('normal')
+   }
+   ```
 
 ####  3.3. Quên xử lý lỗi
 
-    Cũng như với việc quên `catch` lỗi khi sử dụng Promise, việc quên `try catch` để bắt lỗi với hàm async cũng có thể xảy ra. Nếu bạn quên không bắt lỗi, thì khi đoạn mã bất đồng của bạn xảy ra lỗi có thể làm chương trình của bạn bị dừng lại.
+Cũng như với việc quên `catch` lỗi khi sử dụng Promise, việc quên `try catch` để bắt lỗi với hàm async cũng có thể xảy ra. Nếu bạn quên không bắt lỗi, thì khi đoạn mã bất đồng của bạn xảy ra lỗi có thể làm chương trình của bạn bị dừng lại.
 
-    ```javascript
-    function wait(ms) {
-      if (ms > 2015) throw new Error(ms)
-      return new Promise(r => setTimeout(r, ms))
-    }
+```javascript
+function wait(ms) {
+  if (ms > 2015) throw new Error(ms)
+  return new Promise(r => setTimeout(r, ms))
+}
 
-    async function main() {
-      console.log('sắp rồi...')
-      await wait(2007)
-      console.log('chờ tí...')
-      await wait(2012)
-      console.log('thêm chút nữa thôi...')
-      await wait(2016)
-      console.log('xong rồi đấy!')
-    }
-    ```
+async function main() {
+  console.log('sắp rồi...')
+  await wait(2007)
+  console.log('chờ tí...')
+  await wait(2012)
+  console.log('thêm chút nữa thôi...')
+  await wait(2016)
+  console.log('xong rồi đấy!')
+}
+```
 
 ####  3.4. Mất tính song song
 
-    Cái này có vẻ là căng nhất, bạn cứ khai báo `await` tuần tự đi rồi chương trình của bạn sẽ chậm như con rùa. hahaaa. Vì mỗi lần khai báo `await` như vậy là bạn cần phải chờ cho xử lý của await kết thúc. Kết quả là bạn có 1 con rùa chạy tuần tự qua từng nấc thang.
+Cái này có vẻ là căng nhất, bạn cứ khai báo `await` tuần tự đi rồi chương trình của bạn sẽ chậm như con rùa. hahaaa. Vì mỗi lần khai báo `await` như vậy là bạn cần phải chờ cho xử lý của await kết thúc. Kết quả là bạn có 1 con rùa chạy tuần tự qua từng nấc thang.
 
-    ```javascript
-    function wait(ms) {
-      return new Promise(r => setTimeout(r, ms))
-    }
+```javascript
+function wait(ms) {
+  return new Promise(r => setTimeout(r, ms))
+}
 
-    async function main() {
-      console.time('wait3s')
-      await wait(1000)
-      await wait(2000)
-      console.timeEnd('wait3s')
-    }
-    ```
+async function main() {
+  console.time('wait3s')
+  await wait(1000)
+  await wait(2000)
+  console.timeEnd('wait3s')
+}
+```
 
-    Với đoạn mã trên bạn sẽ mất tổng cộng là `1 + 2 = 3s` để thực thi. Vì bạn phải chờ từng hàm `wait` một. Vậy làm sao để tránh được tình trạng trên? Câu trả lời là cứ cho xử lý bất đồng bộ chạy trước đi rồi lấy kết quả sau. Vì `Promise` có thể cho phép ta lấy kết quả bất cứ khi nào mà nó ở trạng thái cuối cùng, nên ta có thể chạy nó trước rồi lấy sau cũng không sao cả.
+Với đoạn mã trên bạn sẽ mất tổng cộng là `1 + 2 = 3s` để thực thi. Vì bạn phải chờ từng hàm `wait` một. Vậy làm sao để tránh được tình trạng trên? Câu trả lời là cứ cho xử lý bất đồng bộ chạy trước đi rồi lấy kết quả sau. Vì `Promise` có thể cho phép ta lấy kết quả bất cứ khi nào mà nó ở trạng thái cuối cùng, nên ta có thể chạy nó trước rồi lấy sau cũng không sao cả.
 
-    ```javascript
-    function wait(ms) {
-      return new Promise(r => setTimeout(r, ms))
-    }
+```javascript
+function wait(ms) {
+  return new Promise(r => setTimeout(r, ms))
+}
 
-    async function main() {
-      console.time('wait2s')
-      let w1 = wait(1000)
-      let w2 = wait(2000)
-      await w1
-      await w2
-      console.timeEnd('wait2s')
-    }
-    ```
+async function main() {
+  console.time('wait2s')
+  let w1 = wait(1000)
+  let w2 = wait(2000)
+  await w1
+  await w2
+  console.timeEnd('wait2s')
+}
+```
 
     Như đoạn mã này, ta chỉ mất `2s` để thực hiện vì đoạn `wait` của ta được thực thi song song. Ngoài cách `await` từng `Promise` như trên ta có thể sử dụng [`Promise.all`](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) để song song hóa các Promise.
 
