@@ -1,136 +1,136 @@
 ### 1. Giới thiệu
 
-  Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng [callback hell](https://stackoverflow.com/questions/25098066/what-is-callback-hell-and-how-and-why-rx-solves-it) khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
+Với các đặc tả JavaScript cũ, ta phải sử dụng các hàm phản hồi để xử lý các thao tác bất đồng bộ. Tuy nhiên việc này dẫn tới tình trạng [callback hell](https://stackoverflow.com/questions/25098066/what-is-callback-hell-and-how-and-why-rx-solves-it) khi ta có nhiều thao tác bất đồng bộ phải chờ nhau thực hiện. Call hell làm cho mã nguồn của ta rất rối và khó bảo trì.
 
-  ```javascript
-  function wait(ms, cb) {
-    setTimeout(cb, ms)
-  }
+```javascript
+function wait(ms, cb) {
+  setTimeout(cb, ms)
+}
 
-  function main() {
-    console.log('sắp rồi...')
-    wait(2007, () => {
-      console.log('chờ tí...')
-      wait(2012, () => {
-        console.log('thêm chút nữa thôi...')
-        wait(2016, () => {
-          console.log('xong rồi đấy!')
-        })
+function main() {
+  console.log('sắp rồi...')
+  wait(2007, () => {
+    console.log('chờ tí...')
+    wait(2012, () => {
+      console.log('thêm chút nữa thôi...')
+      wait(2016, () => {
+        console.log('xong rồi đấy!')
       })
     })
-  }
-  ```
+  })
+}
+```
 
-  Vì vậy, với phiên bản ES6 (ES 2016), [Promise](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Promise) đã được đưa vào mặc định nhằm giải quyết tình trạng callback hell. Với Promise, mã nguồn của ta sẽ trông gần giống với phong cách đồng bộ, kết quả là trông dễ theo dõi và bảo trì hơn. Tuy nhiên sử dụng `Promise` lại làm phát sinh vấn đề "khá" tương tự là Promise hell ( lol! JavaScript Heo! ).
+Vì vậy, với phiên bản ES6 (ES 2016), [Promise](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Promise) đã được đưa vào mặc định nhằm giải quyết tình trạng callback hell. Với Promise, mã nguồn của ta sẽ trông gần giống với phong cách đồng bộ, kết quả là trông dễ theo dõi và bảo trì hơn. Tuy nhiên sử dụng `Promise` lại làm phát sinh vấn đề "khá" tương tự là Promise hell ( lol! JavaScript Heo! ).
 
-  ```javascript
-  function wait(ms) {
-    return new Promise(r => setTimeout(r, ms))  
-  }
+```javascript
+function wait(ms) {
+  return new Promise(r => setTimeout(r, ms))  
+}
 
-  function main() {
-    console.log('sắp rồi...')
-    wait(2007).then(() => {
-      console.log('chờ tí...')
-      return wait(2007)
-    }).then(() => {
-      console.log('thêm chút nữa thôi...')
-      return wait(2012)
-    }).then(() => {
-      console.log('thêm chút nữa thôi...')
-      return wait(2016)
-    }).then(() => {
-      console.log('xong rồi đấy!')
-    })
-  }
-  ```
-
-  Để giải quyết vấn đề đó, ở phiên bản ES7 (ES 2017), 1 khái niệm với 2 từ khóa mới được đưa vào là hàm async (`async / await`). Hàm async cho phép ta viết các thao tác bất đồng bộ với phong cách của các mã đồng bộ. Bằng cách viết như vậy, mã nguồn của ta trông sẽ sáng sủa, dễ đọc hơn và "dễ hiểu hơn".
-
-  ```javascript
-  function wait(ms) {
-    return new Promise(r => setTimeout(r, ms))  
-  }
-
-  async function main() {
-    console.log('sắp rồi...')
-    await wait(2007)
+function main() {
+  console.log('sắp rồi...')
+  wait(2007).then(() => {
     console.log('chờ tí...')
-    await wait(2012)
+    return wait(2007)
+  }).then(() => {
     console.log('thêm chút nữa thôi...')
-    await wait(2016)
+    return wait(2012)
+  }).then(() => {
+    console.log('thêm chút nữa thôi...')
+    return wait(2016)
+  }).then(() => {
     console.log('xong rồi đấy!')
-  }
-  ```
+  })
+}
+```
+
+Để giải quyết vấn đề đó, ở phiên bản ES7 (ES 2017), 1 khái niệm với 2 từ khóa mới được đưa vào là hàm async (`async / await`). Hàm async cho phép ta viết các thao tác bất đồng bộ với phong cách của các mã đồng bộ. Bằng cách viết như vậy, mã nguồn của ta trông sẽ sáng sủa, dễ đọc hơn và "dễ hiểu hơn".
+
+```javascript
+function wait(ms) {
+  return new Promise(r => setTimeout(r, ms))  
+}
+
+async function main() {
+  console.log('sắp rồi...')
+  await wait(2007)
+  console.log('chờ tí...')
+  await wait(2012)
+  console.log('thêm chút nữa thôi...')
+  await wait(2016)
+  console.log('xong rồi đấy!')
+}
+```
 
 ### 2. Cách sử dụng
 
-  Để sử dụng hàm async, ta cần khai báo từ khóa `async` ngay trước từ khóa định nghĩa hàm. Tức là, với hàm định nghĩa với từ khóa `function` ta phải khai báo ngay trước `function`, với hàm mũi tên (arrow function) ta phải khai báo trước tập tham số đầu vào, với phương thức của lớp [`Class`](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Classes) thì ta phải khai báo ngay trước tên hàm.
+Để sử dụng hàm async, ta cần khai báo từ khóa `async` ngay trước từ khóa định nghĩa hàm. Tức là, với hàm định nghĩa với từ khóa `function` ta phải khai báo ngay trước `function`, với hàm mũi tên (arrow function) ta phải khai báo trước tập tham số đầu vào, với phương thức của lớp [`Class`](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Classes) thì ta phải khai báo ngay trước tên hàm.
 
-  ```javascript
-  // regular function
-  async function functionName() {
-    let ret = await new Google().search('JavaScript')
+```javascript
+// regular function
+async function functionName() {
+  let ret = await new Google().search('JavaScript')
+}
+
+// arrow function
+let arr = ['JS', 'node.js'].map(async val => {
+  return await new Google().search(val)
+})
+
+// Class
+class Google {
+  constructor() {
+    this.apiKey = '...'
   }
 
-  // arrow function
-  let arr = ['JS', 'node.js'].map(async val => {
-    return await new Google().search(val)
-  })
-
-  // Class
-  class Google {
-    constructor() {
-      this.apiKey = '...'
-    }
-
-    async search(keyword) {
-      return await this.searchApi(keyword)
-    }
+  async search(keyword) {
+    return await this.searchApi(keyword)
   }
-  ```
+}
+```
 
-  Với từ khóa `async` này, ta có thể đợi các `Promise` (thao tác bất đồng bộ) xử lý trong hàm đó mà không tạm dùng luồng chính bằng từ khóa `await` như ví dụ trên.
+Với từ khóa `async` này, ta có thể đợi các `Promise` (thao tác bất đồng bộ) xử lý trong hàm đó mà không tạm dùng luồng chính bằng từ khóa `await` như ví dụ trên.
 
-  Kết quả trả ra của hàm async luôn là một Promise dù bạn có gọi `await` - có xử lý bất đồng bộ hay không. Promise này sẽ ở trạng thái thành công với kết quả được trả ra với từ khóa `return` của hàm async, hoặc trạng thái thất bại với kết quả được đẩy qua từ khóa `throw` trong hàm async.
+Kết quả trả ra của hàm async luôn là một Promise dù bạn có gọi `await` - có xử lý bất đồng bộ hay không. Promise này sẽ ở trạng thái thành công với kết quả được trả ra với từ khóa `return` của hàm async, hoặc trạng thái thất bại với kết quả được đẩy qua từ khóa `throw` trong hàm async.
 
-  Như vậy, bản chất của hàm async chính là Promise. Nếu bạn chưa tìm hiểu về `Promise` thì nên đọc trước ở [bài viết này](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Promise).
+Như vậy, bản chất của hàm async chính là Promise. Nếu bạn chưa tìm hiểu về `Promise` thì nên đọc trước ở [bài viết này](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 
-  Với Promise, ta có thể xử lý ngoại lệ với [`catch`](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) khá đơn giản. Tuy nhiên cũng không dễ dàng theo dõi và dễ đọc. Nhưng với hàm async, việc này cực kì đơn giản bằng từ khóa `try catch` hệt như các thao tác đồng bộ.
+Với Promise, ta có thể xử lý ngoại lệ với [`catch`](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) khá đơn giản. Tuy nhiên cũng không dễ dàng theo dõi và dễ đọc. Nhưng với hàm async, việc này cực kì đơn giản bằng từ khóa `try catch` hệt như các thao tác đồng bộ.
 
-  ```javascript
-  //
-  // test.js
-  //
-  function wait(ms) {
-    return new Promise(r => setTimeout(r, ms))  
+```javascript
+//
+// test.js
+//
+function wait(ms) {
+  return new Promise(r => setTimeout(r, ms))  
+}
+
+async function runner() {
+  console.log('sắp rồi...')
+  await wait(2007)
+  console.log('chờ tí...')
+  await wait(2012)
+  console.log('thêm chút nữa thôi...')
+  await wait(2016)
+  throw new Error(2016)
+}
+
+async function main() {
+  try {
+    await runner()
+    console.log('xong rồi đấy!')
+  } catch (e) {
+    console.log(`có vấn đề tại ${ e }`)
   }
+}
 
-  async function runner() {
-    console.log('sắp rồi...')
-    await wait(2007)
-    console.log('chờ tí...')
-    await wait(2012)
-    console.log('thêm chút nữa thôi...')
-    await wait(2016)
-    throw new Error(2016)
-  }
+// Node v7
+// `$ node --harmony-async-await test.js`
+// Console: ... có vấn đề tại 2016
+```
 
-  async function main() {
-    try {
-      await runner()
-      console.log('xong rồi đấy!')
-    } catch (e) {
-      console.log(`có vấn đề tại ${ e }`)
-    }
-  }
-
-  // Node v7
-  // `$ node --harmony-async-await test.js`
-  // Console: ... có vấn đề tại 2016
-  ```
-
-  Ngon! Rõ ràng là mã nguồn sử dụng `async/await` trông đơn giản, dễ theo dõi, "dễ hiểu" hơn và giải quyết được tình trạng callback - promise hell. Tuy nhiên, việc sử dụng nó cũng không phải lúc nào cũng đơn giản. Ta cùng nhau xem một số trường hợp dưới đây.
+Ngon! Rõ ràng là mã nguồn sử dụng `async/await` trông đơn giản, dễ theo dõi, "dễ hiểu" hơn và giải quyết được tình trạng callback - promise hell. Tuy nhiên, việc sử dụng nó cũng không phải lúc nào cũng đơn giản. Ta cùng nhau xem một số trường hợp dưới đây.
 
 ### 3. Lưu ý
 
