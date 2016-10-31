@@ -247,49 +247,49 @@ async function main() {
 }
 ```
 
-    Như đoạn mã này, ta chỉ mất `2s` để thực hiện vì đoạn `wait` của ta được thực thi song song. Ngoài cách `await` từng `Promise` như trên ta có thể sử dụng [`Promise.all`](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) để song song hóa các Promise.
+Như đoạn mã này, ta chỉ mất `2s` để thực hiện vì đoạn `wait` của ta được thực thi song song. Ngoài cách `await` từng `Promise` như trên ta có thể sử dụng [`Promise.all`](https://developer.mozilla.org/vi/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) để song song hóa các Promise.
 
-    ```javascript
-    function wait(ms) {
-      return new Promise(r => setTimeout(r, ms))
+```javascript
+function wait(ms) {
+  return new Promise(r => setTimeout(r, ms))
+}
+
+async function main() {
+  console.time('wait2s')
+  await Promise.all([wait(1000), wait(2000)])
+  console.timeEnd('wait2s')
+}
+```
+
+Lúc này, có thể bạn đang nghĩ `Promise.all` và `await` từng Promise là như nhau, nhưng nó khác nhau chút đấy. `Promise.all` chỉ ở trạng thái thành công khi mà tất cả các Promise được truyền vào xử lý thành công, còn nó sẽ ở trạng thái lỗi khi một trong các Promise truyền vào bị lỗi. Như vậy, nếu bạn muốn bỏ qua các Promise lỗi thì bạn không thể sử dụng `Promise.all` được đâu. Lúc đó bắt buộc bạn phải sử dụng `await` kèm với `try catch` cho từng Promise của bạn.
+
+```javascript
+function wait(ms) {
+  if (ms > 2000) throw new Error(ms)
+  return new Promise(r => setTimeout(r, ms))
+}
+
+async function main() {
+  const dur = [1000, 2000, 3000, 4000]
+  let all = dur.map(ms => wait(ms))
+  try {
+    await Promise.all(all)
+    console.log('Promise.all - done')
+  } catch (e) {
+    console.error('Promise.all:', e)  
+  }
+
+  let each = dur.map(ms => wait(ms))
+  each.forEach(async (func, index) => {
+    try {
+      await func
+      console.log('each - done:', dur[index])
+    } catch (e) {
+      console.error('each:', e)  
     }
-
-    async function main() {
-      console.time('wait2s')
-      await Promise.all([wait(1000), wait(2000)])
-      console.timeEnd('wait2s')
-    }
-    ```
-
-    Lúc này, có thể bạn đang nghĩ `Promise.all` và `await` từng Promise là như nhau, nhưng nó khác nhau chút đấy. `Promise.all` chỉ ở trạng thái thành công khi mà tất cả các Promise được truyền vào xử lý thành công, còn nó sẽ ở trạng thái lỗi khi một trong các Promise truyền vào bị lỗi. Như vậy, nếu bạn muốn bỏ qua các Promise lỗi thì bạn không thể sử dụng `Promise.all` được đâu. Lúc đó bắt buộc bạn phải sử dụng `await` kèm với `try catch` cho từng Promise của bạn.
-
-    ```javascript
-    function wait(ms) {
-      if (ms > 2000) throw new Error(ms)
-      return new Promise(r => setTimeout(r, ms))
-    }
-
-    async function main() {
-      const dur = [1000, 2000, 3000, 4000]
-      let all = dur.map(ms => wait(ms))
-      try {
-        await Promise.all(all)
-        console.log('Promise.all - done')
-      } catch (e) {
-        console.error('Promise.all:', e)  
-      }
-
-      let each = dur.map(ms => wait(ms))
-      each.forEach(async (func, index) => {
-        try {
-          await func
-          console.log('each - done:', dur[index])
-        } catch (e) {
-          console.error('each:', e)  
-        }
-      })
-    }
-    ```
+  })
+}
+```
 
 ### 4. Nền tảng/ trình duyệt hỗ trợ
 
