@@ -10,7 +10,7 @@ http://nodefest.jp/2016/
 * [Node.js × Babel で AWS Lambda アプリケーションを開発する ](http://www.slideshare.net/hiroyukikusu/node2016nodebabellambda-68676928)
 * [Node.js with WebRTC DataChannel ](http://www.slideshare.net/mganeko/nodejs-with-webrtc-datachannel)
 
-2. day 2
+2. [day 2](https://nodejs.connpass.com/event/42182/presentation/)
 
 * [Vue.js 2.0 Server Side Rendering](https://speakerdeck.com/kazupon/vue-dot-js-2-dot-0-server-side-rendering)
 * [Evolution of Electron](https://speakerdeck.com/zcbenz/evolution-of-electron-nodefest-2016)
