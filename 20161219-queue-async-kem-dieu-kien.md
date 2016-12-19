@@ -13,12 +13,12 @@ Mình cũng đã tạo issue trên Github của dự án này nhưng có vẻ nh
 
 Ok, giờ tới lúc cách sử dụng rồi.
 
-1. Cài đặt
+### 1. Cài đặt
 ```shell
 $ npm i -S job-schedule
 ```
 
-2. API
+### 2. API
 ```javascript
 const Queue = require('job-schedule')
 
@@ -37,7 +37,7 @@ q.when = function (node, cb) {
 }
 ```
 
-3. Ví dụ
+### 3. Ví dụ
 ```javascript
 const Queue = require('job-schedule')
 
